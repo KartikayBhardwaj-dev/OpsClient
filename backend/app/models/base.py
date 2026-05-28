@@ -1,3 +1,8 @@
 from app.core.database import Base
-
-__all__ = ["Base"]
+from app.models.user import User
+from app.models.workflow import Workflow
+__all__ = [
+    "Base",
+    "User",
+    "Workflow"
+    ]
