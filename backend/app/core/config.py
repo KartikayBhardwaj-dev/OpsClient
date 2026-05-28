@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     REDIS_URL: str
     CHROMA_DB_PATH: str = "./chroma_db"
+    GROQ_MODEL: str = "llama-3.1-8b-instant"
     class Config:
         env_file = ".env"
 
