@@ -1,0 +1,7 @@
+from app.agents.base_agent import BaseAgent
+
+class ResearchAgent(BaseAgent):
+    def __init__(self):
+        super().__init__(
+            role="research specialist"
+        )

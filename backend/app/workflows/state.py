@@ -3,8 +3,7 @@ from typing import List
 
 class GraphState(TypedDict):
     user_input: str
-    plan: str
+    selected_agent: str
     research: str
     summary: str
     messages: List[str]
-    
