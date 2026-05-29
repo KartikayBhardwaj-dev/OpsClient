@@ -12,3 +12,12 @@ class User(Base):
         unique=True,
         index=True
     )
+    google_id: Mapped[str | None] = mapped_column(
+        String,
+        nullable=True
+    )
+
+    profile_picture: Mapped[str | None] = mapped_column(
+        String,
+        nullable=True
+    )
