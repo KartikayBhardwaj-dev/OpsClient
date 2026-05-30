@@ -11,6 +11,7 @@ from app.api.routes.gmail import router as gmail_router
 from app.api.routes.slack import (
     router as slack_router
 )
+from app.api.routes.notion import router as notion_router
 
 api_router = APIRouter()
 
@@ -33,4 +34,7 @@ api_router.include_router(auth_router)
 api_router.include_router(gmail_router)
 api_router.include_router(
     slack_router
+)
+api_router.include_router(
+    notion_router
 )

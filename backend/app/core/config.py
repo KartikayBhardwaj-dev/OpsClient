@@ -25,6 +25,9 @@ class Settings(BaseSettings):
 
     SLACK_BOT_TOKEN: str
     SLACK_DEFAULT_CHANNEL: str
+
+    NOTION_TOKEN: str
+    NOTION_PARENT_PAGE_ID: str
     class Config:
         env_file = ".env"
 
