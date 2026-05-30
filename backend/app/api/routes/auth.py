@@ -41,7 +41,13 @@ async def google_callback(
     token = await oauth.google.authorize_access_token(
         request
     )
+    access_token_google = token.get(
+    "access_token"
+    )
 
+    refresh_token_google = token.get(
+    "refresh_token"
+    )
     user_info = token.get("userinfo")
 
     email = user_info["email"]
@@ -53,16 +59,26 @@ async def google_callback(
 
     if existing_user:
 
+        existing_user.gmail_access_token = access_token_google
+
+        if refresh_token_google:
+            existing_user.gmail_refresh_token = refresh_token_google
+
+        await db.commit()
+        await db.refresh(existing_user)
+
         user = existing_user
 
     else:
 
         user = await UserService.create_google_user(
-            db=db,
-            name=user_info["name"],
-            email=email,
-            google_id=user_info["sub"],
-            profile_picture=user_info.get("picture")
+        db=db,
+        name=user_info["name"],
+        email=email,
+        google_id=user_info["sub"],
+        profile_picture=user_info.get("picture"),
+        gmail_access_token=access_token_google,
+        gmail_refresh_token=refresh_token_google
         )
 
     access_token = create_access_token({

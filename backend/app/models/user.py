@@ -21,3 +21,12 @@ class User(Base):
         String,
         nullable=True
     )
+
+    gmail_access_token: Mapped[str | None] = mapped_column(
+        String,
+        nullable=True
+    )
+    gmail_refresh_token: Mapped[str | None] = mapped_column(
+        String,
+        nullable=True
+    )

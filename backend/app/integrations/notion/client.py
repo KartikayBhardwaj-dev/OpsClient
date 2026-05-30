@@ -3,6 +3,7 @@ from app.integrations.base import (
 )
 
 
+
 class NotionClient(
     BaseIntegrationClient
 ):

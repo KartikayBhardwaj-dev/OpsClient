@@ -7,10 +7,10 @@ from app.integrations.types import (IntegrationProvider)
 class IntegrationService:
     def __init__(self):
         self.manager = IntegrationManager()
-        self.manager.register(
-            IntegrationProvider.GMAIL,
-            GmailClient()
-        )
+        # self.manager.register(
+        #     IntegrationProvider.GMAIL,
+        #     GmailClient()
+        # )
         self.manager.register(
             IntegrationProvider.SLACK,
             SlackClient()

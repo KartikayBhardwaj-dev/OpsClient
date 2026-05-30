@@ -41,23 +41,28 @@ class UserService:
 
     @staticmethod
     async def create_google_user(
-        db: AsyncSession,
-        name: str,
-        email: str,
-        google_id: str,
-        profile_picture: str | None = None
+    db: AsyncSession,
+    name: str,
+    email: str,
+    google_id: str,
+    profile_picture: str | None = None,
+    gmail_access_token: str | None = None,
+    gmail_refresh_token: str | None = None
     ):
 
         user = User(
             name=name,
             email=email,
             google_id=google_id,
-            profile_picture=profile_picture
+            profile_picture=profile_picture,
+            gmail_access_token=gmail_access_token,
+            gmail_refresh_token=gmail_refresh_token
         )
 
         db.add(user)
 
         await db.commit()
+
         await db.refresh(user)
 
         return user

@@ -20,9 +20,9 @@ service = IntegrationService()
 
 async def integrations_health():
 
-    gmail = await service.get_client(
-        IntegrationProvider.GMAIL
-    ).health_check()
+    # gmail = await service.get_client(
+    #     IntegrationProvider.GMAIL
+    # ).health_check()
 
     slack = await service.get_client(
         IntegrationProvider.SLACK
@@ -33,7 +33,7 @@ async def integrations_health():
     ).health_check()
 
     return {
-        "gmail": gmail,
+        # "gmail": gmail,
         "slack": slack,
         "notion": notion
     }
