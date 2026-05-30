@@ -8,6 +8,9 @@ from app.api.routes.hitl import router as hitl_router
 from app.api.routes.integrations import (router as integrations_router)
 from app.api.routes.auth import router as auth_router
 from app.api.routes.gmail import router as gmail_router
+from app.api.routes.slack import (
+    router as slack_router
+)
 
 api_router = APIRouter()
 
@@ -28,3 +31,6 @@ api_router.include_router(integrations_router)
 api_router.include_router(auth_router)
 
 api_router.include_router(gmail_router)
+api_router.include_router(
+    slack_router
+)

@@ -3,7 +3,7 @@ from app.integrations.gmail.client import (GmailClient)
 from app.integrations.slack.client import (SlackClient)
 from app.integrations.notion.client import (NotionClient)
 from app.integrations.types import (IntegrationProvider)
-
+from app.core.config import settings
 class IntegrationService:
     def __init__(self):
         self.manager = IntegrationManager()
@@ -13,7 +13,9 @@ class IntegrationService:
         # )
         self.manager.register(
             IntegrationProvider.SLACK,
-            SlackClient()
+            SlackClient(
+                bot_token=settings.SLACK_BOT_TOKEN
+            )
         )
         self.manager.register(
             IntegrationProvider.NOTION,

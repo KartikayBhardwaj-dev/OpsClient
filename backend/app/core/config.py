@@ -22,6 +22,9 @@ class Settings(BaseSettings):
     GOOGLE_CLIENT_ID: str
     GOOGLE_CLIENT_SECRET: str
     GOOGLE_REDIRECT_URI: str
+
+    SLACK_BOT_TOKEN: str
+    SLACK_DEFAULT_CHANNEL: str
     class Config:
         env_file = ".env"
 
